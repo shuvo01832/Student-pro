@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#5209b2] flex items-center justify-center h-screen">
+
+  <div class="bg-[#1a0333] p-10 rounded-2xl w-[350px] text-center shadow-2xl">
+
+    <h2 class="text-white text-2xl font-bold mb-6">Login First</h2>
+
+    <input id="userName"
+      type="text"
+      placeholder="Enter Your Name"
+      class="w-full p-3 rounded-lg mb-4 outline-none text-white" />
+
+    <button onclick="login()"
+      class="bg-[#00FF88] w-full py-2 rounded-full font-semibold">
+      Enter
+    </button>
+
+    <p id="error" class="text-red-400 mt-3 hidden">
+      ❌ Please enter your name
+    </p>
+
+  </div>
+
+<script>
+function login() {
+  const name = document.getElementById("userName").value.trim();
+  const error = document.getElementById("error");
+
+  if (name === "") {
+    error.classList.remove("hidden");
+  } else {
+    localStorage.setItem("userName", name);
+
+    // 👉 main page এ নিয়ে যাবে
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>
